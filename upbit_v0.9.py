@@ -59,7 +59,7 @@ class UpbitCall(QThread):
     def close(self):
         self.alive = False
 
-# 위에서 불러온 값을 위도우에 뿌려주는 부분
+# 위에서 불러온 값을 윈도우에 뿌려주는 부분
 class MainWindow(QMainWindow, form_class):  # slot class
     def __init__(self):
         super().__init__()
