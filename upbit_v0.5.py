@@ -9,13 +9,13 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *  # thread 사용 시 필요
 from PyQt5 import uic
 
-form_class = uic.loadUiType("ui/testUi.ui")[0]
+form_class = uic.loadUiType("ui/testUi.ui")[0]  # ui 불러오는 부분
 
 # signal class : 업비트서버에 요청을 보내 코인정보를 받아오는 일만 하는 클래스
 class UpbitCall(QThread):
     # signal함수 선언
     coinDataSent = pyqtSignal(float, float, float, float, float, float, float, float)
-    # float: double보다 메모리 양이 적다
+    # float: double보다 차지하는 메모리 양이 적다
 
     def run(self):
         while True:  # 일단 무한루프 --> 나중에 머추는 기능 추가 필요
@@ -72,7 +72,14 @@ class MainWindow(QMainWindow, form_class):  # slot class
                      acc_trade_price_24h,
                      signed_change_rate
     ):
-        self.trade_price.setText(f"{trade_price:,.0f}")
+        self.trade_price.setText(f"{trade_price:,.2f}")
+        self.high_price.setText(f"{high_price:,.2f}")
+        self.low_price.setText(f"{low_price:,.2f}")
+        self.prev_closing_price.setText(f"{prev_closing_price:,.2f}")
+        self.trade_volume.setText(f"{trade_volume:,.5f}")
+        self.acc_trade_volume_24h.setText(f"{acc_trade_volume_24h:,.3f}")
+        self.acc_trade_price_24h.setText(f"{acc_trade_price_24h:,.2f}")
+        self.signed_change_rate.setText(f"{signed_change_rate:,.9f}")
 
 
 if __name__ == "__main__":

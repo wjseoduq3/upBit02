@@ -69,7 +69,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>\</string>
+     <string>원</string>
     </property>
    </widget>
    <widget class="QLabel" name="high_price">
@@ -108,7 +108,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>\</string>
+     <string>원</string>
     </property>
    </widget>
    <widget class="QLabel" name="low_price">
@@ -147,7 +147,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>\</string>
+     <string>원</string>
     </property>
    </widget>
    <widget class="QLabel" name="prev_closing_price">
@@ -173,7 +173,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>\</string>
+     <string>원</string>
     </property>
    </widget>
    <widget class="QLabel" name="closing_price">
@@ -199,7 +199,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>\</string>
+     <string>개</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_15">
@@ -303,7 +303,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>개</string>
+     <string>원</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_23">
