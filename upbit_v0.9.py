@@ -16,7 +16,7 @@ form_class = uic.loadUiType("ui/bitUp.ui")[0]  # ui 불러오는 부분
 # signal class : 업비트서버에 요청을 보내 코인정보를 받아오는 일만 하는 클래스
 class UpbitCall(QThread):
     # signal함수 선언
-    coinDataSent = pyqtSignal(float, float, float, float, float, float, float, float)
+    coinDataSent = pyqtSignal(float, float, float, float, float, float, float, float)  # 필수
     # float: double보다 차지하는 메모리 양이 적다
 
     def __init__(self, ticker):  # signal class 객체가 선언될 때 MainWindow에서 코인 종류 받아오기
@@ -24,8 +24,8 @@ class UpbitCall(QThread):
         self.ticker = ticker
         self.alive = True
 
-    def run(self):
-        while self.alive:  # 일단 무한루프 --> 나중에 머추는 기능 추가 필요
+    def run(self):  # 필수
+        while self.alive:  # 일단 무한루프 --> 나중에 멈추는 기능 추가 필요
             url = "https://api.upbit.com/v1/ticker"
             param = {"markets": f"KRW-{self.ticker}"}
             # url = "https://api.upbit.com/v1/ticker?markets=KRW-BTC"과 동일
@@ -42,6 +42,7 @@ class UpbitCall(QThread):
             acc_trade_price_24h = result[0]["acc_trade_price_24h"]  # 24시간 누적거래대금
             signed_change_rate = result[0]["signed_change_rate"]  # 부호가 있는 변화율
 
+            # 받아온 부분을 보내주는 부분
             self.coinDataSent.emit(
                 float(trade_price),
                 float(high_price),
