@@ -184,8 +184,8 @@ class MainWindow(QMainWindow, form_class):  # slot class
             self.trade_price.setStyleSheet("color:red;")
 
     def telegram_message(self, message):  # telegram에 메시지 전송하는 함수
-        bot = telegram.Bot(token="7150770982:AAFSa3on25LTmBtIDDr9eqL8kleAtPiq7EI")
-        chat_id = "7159357052"
+        bot = telegram.Bot(token="**********")
+        chat_id = "********"
 
         asyncio.run(bot.sendMessage(chat_id=chat_id, text=message))
 
