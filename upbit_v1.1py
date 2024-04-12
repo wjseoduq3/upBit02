@@ -129,7 +129,10 @@ class MainWindow(QMainWindow, form_class):  # slot class
                      acc_trade_price_24h,
                      signed_change_rate
     ):
-        self.trade_price.setText(f"{trade_price:,.2f}원")
+        if trade_price <= 1000:
+            self.trade_price.setText(f"{trade_price:,.2f}원")
+        else:
+            self.trade_price.setText(f"{trade_price:,.1f}원")
         self.high_price.setText(f"{high_price:,.2f}원")
         self.low_price.setText(f"{low_price:,.2f}원")
         self.prev_closing_price.setText(f"{prev_closing_price:,.2f}원")
