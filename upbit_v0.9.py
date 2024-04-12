@@ -53,7 +53,7 @@ class UpbitCall(QThread):
                 float(signed_change_rate)
             )
 
-            # 업비트 홀출 타임 딜레이 시킴
+            # 업비트 호출 타임 딜레이 시킴
             time.sleep(5)
 
     def close(self):
